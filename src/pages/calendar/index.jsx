@@ -1,5 +1,12 @@
-import TasksPage from "../../components/Tasks/TasksPage";
+import { useContext } from "react";
+import CalendarPage from "../../components/Calendar/CalendarPage";
 
-export default function TasksIndex() {
-  return <TasksPage />;
+import { NavigationContext } from "../../store/Navigation";
+import { NAVIGATION_ENUM } from "../../helpers/navigationList";
+
+export default function CalendarIndex() {
+  const navigationCtx = useContext(NavigationContext);
+  navigationCtx.setCurrentNav(NAVIGATION_ENUM.CALENDAR);
+
+  return <CalendarPage />;
 }

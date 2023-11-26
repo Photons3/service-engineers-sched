@@ -1,20 +1,29 @@
-import navigation from "../../helpers/navigationList";
+import { useContext } from "react";
+import Image from "next/image";
+import Link from "next/link";
+
 import classNames from "../../helpers/classNames";
 
+import { NavigationContext } from "../../store/Navigation";
+
 export default function TopNavigation() {
+  const navigationCtx = useContext(NavigationContext);
+
   return (
     <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
       <div className="flex flex-shrink-0 items-center">
-        <img
+        <Image
           className="h-8 w-auto"
+          width={256}
+          height={256}
           src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-          alt=""
+          alt="Logo"
         />
       </div>
       <div className="hidden sm:ml-6 sm:block">
         <div className="flex space-x-4">
-          {navigation.map((item) => (
-            <a
+          {navigationCtx.navlist.map((item) => (
+            <Link
               key={item.name}
               href={item.href}
               className={classNames(
@@ -26,7 +35,7 @@ export default function TopNavigation() {
               aria-current={item.current ? "page" : undefined}
             >
               {item.name}
-            </a>
+            </Link>
           ))}
         </div>
       </div>

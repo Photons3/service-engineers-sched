@@ -1,11 +1,11 @@
 import NavBar from "../NavBar";
 
-export default function HomePage() {
+export default function Dashboard() {
   return (
     <>
       <NavBar />
       <div>
-        <h1>Homepage</h1>
+        <h1>Dashboard</h1>
       </div>
     </>
   );
