@@ -100,6 +100,5 @@ export function DATE_CLASS_NOW() {
   const dt = DateTime.now();
 
   const dateTimeNow = new DATE_CLASS(dt.day, dt.month, dt.year);
-  console.log(dateTimeNow);
   return dateTimeNow;
 }

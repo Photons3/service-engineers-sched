@@ -9,11 +9,11 @@ export const DUMMY_SERVICE_IT = [
     weekItineraries: [
       {
         date: new DATE_CLASS(2, 12, 2023).dateTime.ts,
-        list: [{ details: "Pull-out CMC" }, { details: "LPDH" }],
+        list: [{ details: "Pull-out CMC sada sda  dasd" }, { details: "LPDH" }],
       },
       {
-        date: new DATE_CLASS(22, 11, 2023).dateTime.ts,
-        list: [{ details: "Pull-out CMC" }],
+        date: new DATE_CLASS(27, 11, 2023).dateTime.ts,
+        list: [{ details: "Pull-out CMC asdadadasdasd ad" }],
       },
       {
         date: new DATE_CLASS(23, 11, 2023).dateTime.ts,
@@ -40,7 +40,7 @@ export const DUMMY_SERVICE_IT = [
     week: 47,
     weekItineraries: [
       {
-        date: new DATE_CLASS(20, 11, 2023).dateTime.ts,
+        date: new DATE_CLASS(28, 11, 2023).dateTime.ts,
         list: [{ details: "Pull-out CMC" }, { details: "Sagrada" }],
       },
       {
@@ -76,7 +76,7 @@ export const DUMMY_SERVICE_IT = [
     week: 47,
     weekItineraries: [
       {
-        date: new DATE_CLASS(27, 11, 2023).dateTime.ts,
+        date: new DATE_CLASS(1, 12, 2023).dateTime.ts,
         list: [{ details: "Pull-out CMC" }, { details: "Sagrada" }],
       },
       {
@@ -120,7 +120,7 @@ export const DUMMY_SERVICE_IT = [
         list: [{ details: "Pull-out CMC" }],
       },
       {
-        date: new DATE_CLASS(23, 11, 2023).dateTime.ts,
+        date: new DATE_CLASS(3, 12, 2023).dateTime.ts,
         list: [{ details: "Pull-d" }],
       },
       {

@@ -38,7 +38,7 @@ export default function ServiceItinerary({ currentIndex, data }) {
             key={uniqueKey}
             className={classNames(
               `row-start-[${rowStart}] col-start-[${colStart}]`,
-              "border-slate-100 dark:border-slate-200/5 border-b border-r py-1.5"
+              "border-slate-100 dark:border-slate-200/5 border-b border-r py-1.5 px-3"
             )}
           >
             {/* This loops to all fetched data if it finds an item that 
