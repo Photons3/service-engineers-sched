@@ -72,10 +72,12 @@ export class DATE_CLASS_NOW {
   }
 
   getWeekDatesTimeNow() {
+    this.setWeekDatesTimeNow();
     return this.weekDatesNow;
   }
 
   weekDatesStringFormatted() {
+    this.setWeekDatesTimeNow();
     const weekDatesString = this.weekDatesNow.map((datetime) => {
       const weekday = datetime.weekdayLong;
       const month = datetime.monthShort;
@@ -165,10 +167,12 @@ export class DATE_CLASS {
   }
 
   getWeekDatesTime() {
+    this.setWeekDatesTime();
     return this.weekDates;
   }
 
   weekDatesStringFormatted() {
+    this.setWeekDatesTime();
     const weekDatesString = this.weekDates.map((datetime) => {
       const weekday = datetime.weekdayLong;
       const month = datetime.monthShort;

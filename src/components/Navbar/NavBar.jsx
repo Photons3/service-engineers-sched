@@ -1,8 +1,8 @@
 import { Disclosure } from "@headlessui/react";
 import { useRouter } from "next/router";
 
-import MenuItems from "./Navbar/MenuItems";
-import DisclosurePanel from "./Navbar/DisclosurePanel";
+import MenuItems from "./MenuItems";
+import DisclosurePanel from "./DisclosurePanel";
 
 export default function NavBar() {
   const router = useRouter();
