@@ -1,15 +1,17 @@
+import { useContext } from "react";
+import { DateTime } from "luxon";
+
 import ServiceItineraryItem from "./ServiceItineraryItem";
 
 import classNames from "../../helpers/classNames";
-import { DateTime } from "luxon";
+import { SelectedDatesContext } from "../../store/SelectedDates";
 
-export default function ServiceItinerary({
-  currentIndex,
-  data,
-  selectedDates,
-}) {
+export default function ServiceItinerary({ currentIndex, data }) {
   // ADD 2 to current index to hit the right row
   const rowStart = currentIndex + 2;
+
+  const selectedDatesCtx = useContext(SelectedDatesContext);
+  const selectedDates = selectedDatesCtx.dateTime.weekDatesArray();
 
   return (
     <>

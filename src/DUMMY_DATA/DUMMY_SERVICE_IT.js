@@ -8,7 +8,7 @@ export const DUMMY_SERVICE_IT = [
     week: 47,
     weekItineraries: [
       {
-        date: new DATE_CLASS(21, 11, 2023).dateTime.ts,
+        date: new DATE_CLASS(2, 12, 2023).dateTime.ts,
         list: [{ details: "Pull-out CMC" }, { details: "LPDH" }],
       },
       {
@@ -44,7 +44,7 @@ export const DUMMY_SERVICE_IT = [
         list: [{ details: "Pull-out CMC" }, { details: "Sagrada" }],
       },
       {
-        date: new DATE_CLASS(21, 11, 2023).dateTime.ts,
+        date: new DATE_CLASS(29, 11, 2023).dateTime.ts,
         list: [{ details: "Pull-out CMC" }, { details: "LPDH" }],
       },
       {
@@ -76,7 +76,7 @@ export const DUMMY_SERVICE_IT = [
     week: 47,
     weekItineraries: [
       {
-        date: new DATE_CLASS(20, 11, 2023).dateTime.ts,
+        date: new DATE_CLASS(27, 11, 2023).dateTime.ts,
         list: [{ details: "Pull-out CMC" }, { details: "Sagrada" }],
       },
       {
@@ -128,7 +128,7 @@ export const DUMMY_SERVICE_IT = [
         list: [{ details: "Pull-out CMC" }],
       },
       {
-        date: new DATE_CLASS(25, 11, 2023).dateTime.ts,
+        date: new DATE_CLASS(30, 11, 2023).dateTime.ts,
         list: [{ details: "Pull-out CMC" }],
       },
       {

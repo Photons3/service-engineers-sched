@@ -1,100 +1,5 @@
 import { DateTime } from "luxon";
 
-export class DATE_CLASS_NOW {
-  constructor() {
-    this.setDateTimeNow();
-    this.setWeekNumberNow();
-    this.setDateAndDayOfTheWeekNow();
-    this.setYearNumberNow();
-    this.setWeekRangeNow();
-  }
-
-  setDateTimeNow() {
-    this.dateTime = DateTime.now();
-  }
-
-  getDateTimeNow() {
-    return this.dateTime;
-  }
-
-  setWeekNumberNow() {
-    this.weekNumberNow = this.dateTime.weekNumber;
-  }
-
-  getWeekNumberNow() {
-    return this.weekNumberNow;
-  }
-
-  setDateAndDayOfTheWeekNow() {
-    this.dateAndDayOfTheWeekNow = this.dateTime.toLocaleString({
-      month: "short",
-      day: "numeric",
-      weekday: "long",
-    });
-  }
-
-  getDateAndDayOfTheWeekNow() {
-    return this.dateAndDayOfTheWeekNow;
-  }
-
-  setYearNumberNow() {
-    this.yearNumberNow = this.dateTime.year;
-  }
-
-  getYearNumberNow() {
-    return this.yearNumberNow;
-  }
-
-  setWeekRangeNow() {
-    const dt = DateTime.fromObject({
-      weekYear: this.getYearNumberNow(),
-      weekNumber: this.getWeekNumberNow(),
-    });
-
-    const startOfWeek = dt.startOf("week");
-    const endOfWeek = dt.endOf("week");
-
-    this.weekRangeNow = { startOfWeek, endOfWeek };
-  }
-
-  getWeekRangeNow() {
-    return this.weekRangeNow;
-  }
-
-  setWeekDatesTimeNow() {
-    const weekDatesNow = [];
-
-    for (let i = 0; i < 7; i++) {
-      weekDatesNow[i] = this.weekRangeNow.startOfWeek.plus({ hours: 24 * i });
-    }
-
-    this.weekDatesNow = weekDatesNow;
-  }
-
-  getWeekDatesTimeNow() {
-    this.setWeekDatesTimeNow();
-    return this.weekDatesNow;
-  }
-
-  weekDatesStringFormatted() {
-    this.setWeekDatesTimeNow();
-    const weekDatesString = this.weekDatesNow.map((datetime) => {
-      const weekday = datetime.weekdayLong;
-      const month = datetime.monthShort;
-      const day = datetime.day.toString();
-      return { weekday, month, day };
-    });
-
-    return weekDatesString;
-  }
-
-  weekDatesArray() {
-    this.setWeekDatesTimeNow();
-    const weekDatesArray = this.getWeekDatesTimeNow();
-    return weekDatesArray;
-  }
-}
-
 export class DATE_CLASS {
   constructor(day, month, year) {
     this.setDateTime(day, month, year);
@@ -164,6 +69,7 @@ export class DATE_CLASS {
     }
 
     this.weekDates = weekDates;
+    return this.weekDates;
   }
 
   getWeekDatesTime() {
@@ -188,4 +94,12 @@ export class DATE_CLASS {
     const weekDatesArray = this.getWeekDatesTime();
     return weekDatesArray;
   }
+}
+
+export function DATE_CLASS_NOW() {
+  const dt = DateTime.now();
+
+  const dateTimeNow = new DATE_CLASS(dt.day, dt.month, dt.year);
+  console.log(dateTimeNow);
+  return dateTimeNow;
 }
