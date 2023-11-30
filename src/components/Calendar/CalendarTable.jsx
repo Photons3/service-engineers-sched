@@ -20,8 +20,8 @@ export default function CalendarTable() {
     <>
       <div
         className={classNames(
-          `grid-rows-[auto,repeat(${servicePersonnelCount},auto)]`,
-          `lg:grid-cols-[150px,repeat(${selectedDates.length},minmax(220px,auto))] sm:grid-cols-[110px,repeat(${selectedDates.length},minmax(190px,auto))] grid-cols-[90px,repeat(${selectedDates.length},minmax(150px,auto))]`,
+          `grid-rows-[auto,repeat(10,auto)]`,
+          `lg:grid-cols-[150px,repeat(7,minmax(220px,auto))] sm:grid-cols-[110px,repeat(7,minmax(190px,auto))] grid-cols-[90px,repeat(7,minmax(150px,auto))]`,
           "overflow-scroll grid max-h-full max-w-[200%] text-center"
         )}
       >

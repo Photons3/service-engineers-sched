@@ -11,11 +11,11 @@ export default function DisclosurePanel() {
   return (
     <Disclosure.Panel className="sm:hidden">
       <div className="space-y-1 px-2 pb-3 pt-2">
-        {navigationCtx.navlist.map((item) => {
+        {navigationCtx.navlist.map((item, index) => {
           return (
             <>
               <Link
-                key={item.name}
+                key={`${index}_${item.name}`}
                 href={item.href}
                 className={classNames(
                   item.current

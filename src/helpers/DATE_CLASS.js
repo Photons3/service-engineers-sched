@@ -102,3 +102,15 @@ export function DATE_CLASS_NOW() {
   const dateTimeNow = new DATE_CLASS(dt.day, dt.month, dt.year);
   return dateTimeNow;
 }
+
+// From rwilliams https://stackoverflow.com/questions/13796950/javascript-weeks-per-year
+export function getISOWeeks(year) {
+  var d, isLeap;
+
+  d = new Date(year, 0, 1);
+  isLeap = new Date(year, 1, 29).getMonth() === 1;
+
+  //check for a Jan 1 that's a Thursday or a leap year that has a
+  //Wednesday jan 1. Otherwise it's 52
+  return d.getDay() === 4 || (isLeap && d.getDay() === 3) ? 53 : 52;
+}

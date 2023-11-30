@@ -1,6 +1,7 @@
 import Head from "next/head";
 import NavBar from "../Navbar/NavBar";
 import CalendarTable from "./CalendarTable";
+import CalendarControls from "./CalendarControls";
 
 export default function CalendarPage() {
   return (
@@ -9,6 +10,7 @@ export default function CalendarPage() {
         <title>Calendar</title>
       </Head>
       <NavBar />
+      <CalendarControls />
       <CalendarTable />
     </>
   );

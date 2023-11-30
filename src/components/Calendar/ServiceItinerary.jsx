@@ -17,8 +17,9 @@ export default function ServiceItinerary({ currentIndex, data }) {
     <>
       {/* First Column Prints the Name */}
       <div
+        style={{ gridRowStart: rowStart }}
         className={classNames(
-          `row-start-[${rowStart}]`,
+          // `row-start-[${rowStart}]`,
           "col-start-[1] border-slate-100 dark:border-slate-200/5 border-r text-xs py-[1rem] content-center text-center text-slate-400 sticky left-0 bg-white dark:bg-slate-800 font-medium"
         )}
       >
@@ -30,14 +31,14 @@ export default function ServiceItinerary({ currentIndex, data }) {
         this works with or without data */}
       {selectedDates.map((selectedDate, index) => {
         const colStart = index + 2;
-
         const uniqueKey = rowStart.toString() + "_" + colStart.toString();
 
         return (
           <div
             key={uniqueKey}
+            style={{ gridColumnStart: colStart, gridRowStart: rowStart }}
             className={classNames(
-              `row-start-[${rowStart}] col-start-[${colStart}]`,
+              // `row-start-[${rowStart}] col-start-[${colStart}]`,
               "border-slate-100 dark:border-slate-200/5 border-b border-r py-1.5 px-3"
             )}
           >
@@ -55,7 +56,7 @@ export default function ServiceItinerary({ currentIndex, data }) {
                 } else {
                   return (
                     <ServiceItineraryItem
-                      key={`${uniqueKey}_index_serviceItineraryItem`}
+                      key={`${uniqueKey}_${index}_index_serviceItineraryItem`}
                       weekItineraryList={item}
                       uniqueKey={uniqueKey}
                     />
