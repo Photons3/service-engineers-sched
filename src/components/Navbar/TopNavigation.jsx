@@ -2,6 +2,7 @@ import { useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import MarkSVG from "../../../public/static/images/mark.svg";
 import classNames from "../../helpers/classNames";
 
 import { NavigationContext } from "../../store/Navigation";
@@ -16,7 +17,7 @@ export default function TopNavigation() {
           className="h-8 w-auto"
           width={256}
           height={256}
-          src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+          src={MarkSVG}
           alt="Logo"
         />
       </div>
