@@ -15,11 +15,11 @@ export default function CalendarControls() {
   }
 
   return (
-    <div className="flex flex-row justify-center my-1.5">
+    <div className="flex flex-row justify-center my-1.5 content-center">
       <div className="mx-2">
         <h1>Service Team Schedule Week {weekFilter}</h1>
       </div>
-      <div className="mx-5">
+      <div className="mx-5 items-center">
         <WeekInputs
           className="flex-auto"
           onChangeWeekNumber={onChangeWeekNumber}

@@ -22,7 +22,7 @@ export const SelectedDatesContext = createContext({
   dateTime: new DATE_CLASS_NOW(),
   setDateTime: setDateTime,
   dateTimeNow: new DATE_CLASS_NOW(),
-  SetFromWeekYear: NEW_DATE_FROM_WEEK_YEAR,
+  setFromWeekYear: NEW_DATE_FROM_WEEK_YEAR,
 });
 
 export default function SelectedDateProvider(props) {

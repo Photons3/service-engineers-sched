@@ -1,0 +1,78 @@
+[
+  {
+    "username": "jester",
+    "displayName": "Jester",
+    "date": 1701572180235,
+    "groupNumber": 4,
+    "isActive": true,
+    "details": {
+      "description": "Pullout CMC",
+      "institution": "CMC",
+      "machine": "MLx9",
+      "location": {
+        "latitude": 123123.123123,
+        "longitude": 123123213.213123,
+        "description": "Tabi ng mcdo"
+      },
+      "typeOfRequest": "Repair",
+      "fieldReport": { "year": 2023, "sequence": 1034 }
+    }
+  },
+    {
+      "username": "ryo",
+      "displayName": "Ryo",
+      "date": 1701705600000,
+      "groupNumber": 1,
+      "isActive": true,
+      "details": {
+        "description": "asdasd",
+        "institution": "CMC",
+        "machine": "MLx9",
+        "location": {
+          "latitude": 123123.123123,
+          "longitude": 123123213.213123,
+          "description": "Tabi ng mcdo"
+        },
+        "typeOfRequest": "Repair",
+        "fieldReport": { "year": 2023, "sequence": 1034 }
+      }
+    },
+  {
+    "username": "tantan",
+    "displayName": "Christian",
+    "date": 1701572180235,
+    "groupNumber": 2,
+    "isActive": true,
+    "details": {
+      "description": "d CMC",
+      "institution": "CMC",
+      "machine": "MLx9",
+      "location": {
+        "latitude": 123123.123123,
+        "longitude": 123123213.213123,
+        "description": "Tabi ng mcdo"
+      },
+      "typeOfRequest": "Repair",
+      "fieldReport": { "year": 2023, "sequence": 1034 }
+    }
+  },
+  {
+    "username": "renzo",
+    "displayName": "Renzo",
+    "date": 1701572180235,
+    "groupNumber": 4,
+    "isActive": true,
+    "details": {
+      "description": "asdC",
+      "institution": "CMC",
+      "machine": "MLx9",
+      "location": {
+        "latitude": 123123.123123,
+        "longitude": 123123213.213123,
+        "description": "Tabi ng mcdo"
+      },
+      "typeOfRequest": "Repair",
+      "fieldReport": { "year": 2023, "sequence": 1034 }
+    }
+  }
+]

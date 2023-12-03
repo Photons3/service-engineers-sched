@@ -1,4 +1,5 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState, useCallback } from "react";
+import useFetch from "use-http";
 
 import ServiceItinerary from "./ServiceItinerary";
 import CalendarMainRow from "./CalendarMainRow";
@@ -6,15 +7,36 @@ import CalendarMainRow from "./CalendarMainRow";
 import { SelectedDatesContext } from "../../store/SelectedDates";
 import classNames from "../../helpers/classNames";
 
-import { DUMMY_SERVICE_IT } from "../../DUMMY_DATA/DUMMY_SERVICE_IT";
-
 export default function CalendarTable() {
+  const [itineraryList, setItineraryList] = useState([]);
+
+  const {
+    get: getItinerary,
+    post: postItinerary,
+    response: responseItinerary,
+    loading: loadingItinerary,
+    error: errorItinerary,
+  } = useFetch("http://localhost:3000");
+
+  useEffect(() => {
+    async function loadInitialItinerary() {
+      const initialItinerary = await getItinerary("/api/schedule/itineraries");
+
+      if (responseItinerary.ok) {
+        setItineraryList(initialItinerary);
+      }
+    }
+    loadInitialItinerary();
+  }, [getItinerary, responseItinerary, setItineraryList]);
+
   const selectedDatesCtx = useContext(SelectedDatesContext);
   const selectedDateTime = selectedDatesCtx.dateTime;
   const selectedDatesTimeString = selectedDateTime.weekDatesStringFormatted();
-  const selectedDates = selectedDateTime.getWeekDatesTime();
 
-  const servicePersonnelCount = DUMMY_SERVICE_IT.length;
+  const currentDate = selectedDatesCtx.dateTimeNow;
+  const currentDateTimeString = currentDate.dateStringFormatted();
+
+  const servicePersonnelCount = itineraryList.length;
 
   return (
     <>
@@ -26,7 +48,10 @@ export default function CalendarTable() {
         )}
       >
         {/* First Column  */}
-        <div className="row-start-[1] col-start-[1] sticky left-0 top-0 z-20 bg-white dark:bg-gradient-to-b dark:from-slate-600 dark:to-slate-700 border-slate-100 dark:border-black/10 bg-clip-padding text-slate-900 dark:text-slate-200 border-b text-sm font-medium py-2"></div>
+        <div className="row-start-[1] col-start-[1] sticky left-0 top-0 z-20 bg-white dark:bg-gradient-to-b dark:from-slate-600 dark:to-slate-700 border-slate-100 dark:border-black/10 bg-clip-padding text-slate-900 dark:text-slate-200 border-b text-sm font-medium py-2">
+          {`Today is ${currentDateTimeString.weekday}`} <br></br>
+          {`${currentDateTimeString.month} ${currentDateTimeString.day}`}
+        </div>
 
         {selectedDatesTimeString.map((item, index) => {
           return (
@@ -38,7 +63,7 @@ export default function CalendarTable() {
           );
         })}
 
-        {DUMMY_SERVICE_IT.map((item, index) => {
+        {itineraryList.map((item, index) => {
           return (
             <ServiceItinerary
               key={`${index + 1}_1`}

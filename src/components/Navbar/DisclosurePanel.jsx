@@ -1,10 +1,11 @@
 import { useContext } from "react";
+import Link from "next/link";
+
 import { Disclosure } from "@headlessui/react";
 
 import classNames from "@/helpers/classNames";
 
 import { NavigationContext } from "../../store/Navigation";
-import Link from "next/link";
 
 export default function DisclosurePanel() {
   const navigationCtx = useContext(NavigationContext);

@@ -14,18 +14,18 @@ export default function WeekInputs(props) {
   function handleIncrementWeek() {
     const newValue = input + 1;
     if (newValue <= weeksInWeekYears) {
-      setInput(newValue);
-      selectedDates.SetFromWeekYear(newValue, 2023);
+      selectedDates.setFromWeekYear(newValue, 2023);
       props.onChangeWeekNumber();
+      setInput(newValue);
     }
   }
 
   function handleDecrementWeek() {
     const newValue = input - 1;
     if (newValue > 0) {
-      setInput(newValue);
-      selectedDates.SetFromWeekYear(newValue, 2023);
+      selectedDates.setFromWeekYear(newValue, 2023);
       props.onChangeWeekNumber();
+      setInput(newValue);
     }
   }
 
@@ -33,9 +33,9 @@ export default function WeekInputs(props) {
     const newValue = e.target.value;
 
     if (newValue > 0 && newValue <= weeksInWeekYears) {
-      setInput(newValue);
-      selectedDates.SetFromWeekYear(newValue, 2023);
+      selectedDates.setFromWeekYear(newValue, 2023);
       props.onChangeWeekNumber();
+      setInput(newValue);
     }
 
     if (newValue == NaN) {

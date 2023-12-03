@@ -55,6 +55,7 @@ export class DATE_CLASS {
     const endOfWeek = dt.endOf("week");
 
     this.weekRange = { startOfWeek, endOfWeek };
+    return this.weekRange;
   }
 
   getWeekRange() {
@@ -75,6 +76,17 @@ export class DATE_CLASS {
   getWeekDatesTime() {
     this.setWeekDatesTime();
     return this.weekDates;
+  }
+
+  dateStringFormatted() {
+    const dateStringFormatted = {
+      weekday: this.dateTime.weekdayLong,
+      month: this.dateTime.monthShort,
+      day: this.dateTime.day.toString(),
+      year: this.dateTime.year.toString(),
+    };
+
+    return dateStringFormatted;
   }
 
   weekDatesStringFormatted() {
