@@ -1,0 +1,116 @@
+[
+    {
+        "username": "ryo",
+        "name": "Ryo",
+        "group": 1,
+        "weekItineraries": [
+            {
+                "date": 1701619276206,
+                "list": [
+                    {
+                        "id": "656ca42b06707ca94e25bfbf",
+                        "details": "asdasd",
+                        "institution": "CMC",
+                        "machine": "MLx9",
+                        "location": {
+                            "latitude": 123123.123123,
+                            "longitude": 123123213.213123,
+                            "description": "Tabi ng mcdo"
+                        }
+                    },
+                    {
+                        "id": "656ca51106707ca94e25bfc1",
+                        "details": "2nd It",
+                        "institution": "CMC",
+                        "machine": "MLx9",
+                        "location": {
+                            "latitude": 123123.123123,
+                            "longitude": 123123213.213123,
+                            "description": "Tabi ng mcdo"
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "username": "tantan",
+        "name": "Christian",
+        "group": 2,
+        "weekItineraries": [
+            {
+                "date": 1701619276206,
+                "list": [
+                    {
+                        "id": "656ca42206707ca94e25bfbd",
+                        "details": "d CMC",
+                        "institution": "CMC",
+                        "machine": "MLx9",
+                        "location": {
+                            "latitude": 123123.123123,
+                            "longitude": 123123213.213123,
+                            "description": "Tabi ng mcdo"
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "username": "jester",
+        "name": "Jester",
+        "group": 4,
+        "weekItineraries": [
+            {
+                "date": 1701619276206,
+                "list": [
+                    {
+                        "id": "656c9dcad158c21f60bc3b7d",
+                        "details": "Pullout CMC",
+                        "institution": "CMC",
+                        "machine": "MLx9",
+                        "location": {
+                            "latitude": 123123.123123,
+                            "longitude": 123123213.213123,
+                            "description": "Tabi ng mcdo"
+                        }
+                    },
+                    {
+                        "id": "656caccf06707ca94e25bfca",
+                        "details": "New ITs",
+                        "institution": "CMC",
+                        "machine": "MLx9",
+                        "location": {
+                            "latitude": 123123.123123,
+                            "longitude": 123123213.213123,
+                            "description": "Tabi ng mcdo"
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "username": "renzo",
+        "name": "Renzo",
+        "group": 4,
+        "weekItineraries": [
+            {
+                "date": 1701619276206,
+                "list": [
+                    {
+                        "id": "656cac8006707ca94e25bfc7",
+                        "details": "asdC",
+                        "institution": "CMC",
+                        "machine": "MLx9",
+                        "location": {
+                            "latitude": 123123.123123,
+                            "longitude": 123123213.213123,
+                            "description": "Tabi ng mcdo"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+]

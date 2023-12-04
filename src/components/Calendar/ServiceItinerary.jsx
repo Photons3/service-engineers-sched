@@ -20,7 +20,7 @@ export default function ServiceItinerary({ currentIndex, data }) {
         style={{ gridRowStart: rowStart }}
         className={classNames(
           // `row-start-[${rowStart}]`,
-          "col-start-[1] border-slate-100 dark:border-slate-200/5 border-r text-xs py-[1rem] content-center text-center text-slate-400 sticky left-0 bg-white dark:bg-slate-800 font-medium"
+          "col-start-[1] -z-20 border-slate-100 dark:border-slate-200/5 border-r text-xs py-[1rem] content-center text-center text-slate-400 sticky left-0 bg-white dark:bg-slate-800 font-medium"
         )}
       >
         <h1 className="uppercase">{data.name}</h1>
@@ -38,8 +38,7 @@ export default function ServiceItinerary({ currentIndex, data }) {
             key={uniqueKey}
             style={{ gridColumnStart: colStart, gridRowStart: rowStart }}
             className={classNames(
-              // `row-start-[${rowStart}] col-start-[${colStart}]`,
-              "border-slate-100 dark:border-slate-200/5 border-b border-r py-1.5 px-3"
+              "border-slate-100 dark:border-slate-200/5 border-b border-r py-1.5 px-3 -z-30"
             )}
           >
             {/* This loops to all fetched data if it finds an item that 

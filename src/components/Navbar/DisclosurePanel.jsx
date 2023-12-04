@@ -16,7 +16,7 @@ export default function DisclosurePanel() {
           return (
             <>
               <Link
-                key={`${index}_${item.name}`}
+                key={`${item.name}`}
                 href={item.href}
                 className={classNames(
                   item.current

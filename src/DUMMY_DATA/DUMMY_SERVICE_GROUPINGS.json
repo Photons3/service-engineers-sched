@@ -1,0 +1,47 @@
+{
+  "date": 0,
+  "groups": [
+    {
+      "group": 1,
+      "leader": { "username": "janlee", "displayName": "Janlee" },
+      "members": [
+        { "username": "arthur", "displayName": "Thor" },
+        { "username": "lyko", "displayName": "Lyko" }
+      ]
+    },
+    {
+      "group": 2,
+      "leader": { "username": "johnny", "displayName": "Johnny" },
+      "members": [
+        { "username": "cj", "displayName": "CJ" },
+        { "username": "cindy", "displayName": "Cindy" }
+      ]
+    },
+    {
+      "group": 3,
+      "leader": { "username": "renzo", "displayName": "Renzo" },
+      "members": [
+        { "username": "jester", "displayName": "Jester" },
+        { "username": "ryo", "displayName": "Ryo" }
+      ]
+    },
+    {
+      "group": 4,
+      "leader": { "username": "leveen", "displayName": "Leveen" },
+      "members": [
+        { "username": "bob", "displayName": "Bob" },
+        { "username": "tantan", "displayName": "Christian" }
+      ]
+    },
+    {
+      "group": 5,
+      "leader": { "username": "kervin", "displayName": "Kervin" },
+      "members": [{ "username": "denver", "displayName": "Rob" }]
+    },
+    {
+      "group": 99999999,
+      "leader": { "username": "billy", "displayName": "Sir Billy" },
+      "members": [{ "username": "ric", "displayName": "Sir Ric" }]
+    }
+  ]
+}

@@ -127,14 +127,46 @@ export default async function handler(req, res) {
     }
   }
 
+  function setInitialColumnsForServicePersonnels(item) {
+    // Enter new array for leader
+    const newLeaderEntry = {
+      username: item.leader.username,
+      name: item.leader.displayName,
+      group: item.group,
+      weekItineraries: [],
+    };
+    response.push(newLeaderEntry);
+
+    // Enter new array for each members
+    item.members.forEach((member) => {
+      const newGroupEntry = {
+        username: member.username,
+        name: member.displayName,
+        group: item.group,
+        weekItineraries: [],
+      };
+      response.push(newGroupEntry);
+    });
+  }
+
   // ACTUAL API ROUTE
   try {
     const dbName = "MedevService";
-    const collectionName = "itineraries";
+    const collectionNameItineraries = "itineraries";
+    const collectionNameServiceGroupings = "serviceGroupings";
 
     const client = await clientPromise;
     const db = client.db(dbName);
-    const collection = db.collection(collectionName);
+    const collectionIt = db.collection(collectionNameItineraries);
+    const collectionServiceGroupings = db.collection(
+      collectionNameServiceGroupings
+    );
+
+    const personnels = await collectionServiceGroupings.findOne(
+      { date: { $lte: 4 } },
+      { sort: { date: -1 } }
+    );
+    personnels.groups.forEach(setInitialColumnsForServicePersonnels);
 
     const dateTimeNow = DATE_CLASS_NOW();
     // Fetch the Database
@@ -149,7 +181,7 @@ export default async function handler(req, res) {
       };
       const options = { sort: { groupNumber: 1 } };
 
-      const results = await collection.find(query, options).toArray();
+      const itineraries = await collectionIt.find(query, options).toArray();
 
       // If there is no results found TODO: Handle this case
       // if ((await results.countDocuments(query)) === 0) {
@@ -157,7 +189,7 @@ export default async function handler(req, res) {
       // }
 
       // Run the algorithm for setting response with each item from the database
-      results.forEach(getResponseObjectFromDatabase);
+      itineraries.forEach(getResponseObjectFromDatabase);
       res.status(200).json(response);
     }
 

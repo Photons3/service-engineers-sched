@@ -44,11 +44,11 @@ export default function CalendarTable() {
         className={classNames(
           `grid-rows-[auto,repeat(10,auto)]`,
           `lg:grid-cols-[150px,repeat(7,minmax(220px,auto))] sm:grid-cols-[110px,repeat(7,minmax(190px,auto))] grid-cols-[90px,repeat(7,minmax(150px,auto))]`,
-          "overflow-scroll grid max-h-full max-w-[200%] text-center"
+          "overflow-scroll grid max-h-[84vh] max-w-[200%] text-center"
         )}
       >
         {/* First Column  */}
-        <div className="row-start-[1] col-start-[1] sticky left-0 top-0 z-20 bg-white dark:bg-gradient-to-b dark:from-slate-600 dark:to-slate-700 border-slate-100 dark:border-black/10 bg-clip-padding text-slate-900 dark:text-slate-200 border-b text-sm font-medium py-2">
+        <div className="row-start-[1] col-start-[1] sticky left-0 top-0 -z-10 bg-white dark:bg-gradient-to-b dark:from-slate-600 dark:to-slate-700 border-slate-100 dark:border-black/10 bg-clip-padding text-slate-900 dark:text-slate-200 border-b text-sm font-medium py-2">
           {`Today is ${currentDateTimeString.weekday}`} <br></br>
           {`${currentDateTimeString.month} ${currentDateTimeString.day}`}
         </div>

@@ -1,0 +1,70 @@
+[
+  {
+    "username": "jester",
+    "email": "jeser@gmail.com",
+    "password": "password",
+    "displayName": "Jester",
+    "displayPhoto": "displayPhotoPath",
+    "groupNumber": 4,
+    "orderOnList": 0,
+    "isActive": true,
+    "personalInfo": {
+      "firstName": "Jester",
+      "lastName": "Arcas",
+      "phoneNumber": 9332232232,
+      "joinDate": 12313213123,
+      "inactiveDate": 12313123123
+    }
+  },
+  {
+    "username": "tantan",
+    "email": "tantan@gmail.com",
+    "password": "password",
+    "displayName": "Christian",
+    "displayPhoto": "displayPhotoPath",
+    "groupNumber": 2,
+    "orderOnList": 0,
+    "isActive": true,
+    "personalInfo": {
+      "firstName": "Jester",
+      "lastName": "Arcas",
+      "phoneNumber": 9332232232,
+      "joinDate": 12313213123,
+      "inactiveDate": 12313123123
+    }
+  },
+  {
+    "username": "ryo",
+    "email": "ryo@gmail.com",
+    "password": "password",
+    "displayName": "Ryo",
+    "displayPhoto": "displayPhotoPath",
+    "groupNumber": 1,
+    "orderOnList": 0,
+    "isActive": true,
+    "personalInfo": {
+      "firstName": "Jester",
+      "lastName": "Arcas",
+      "phoneNumber": 9332232232,
+      "joinDate": 12313213123,
+      "inactiveDate": 12313123123
+    }
+  },
+  {
+    "username": "renzo",
+    "email": "ryo@gmail.com",
+    "password": "password",
+    "displayName": "Renzo",
+    "displayPhoto": "displayPhotoPath",
+    "groupNumber": 4,
+    "orderOnList": 1,
+    "isActive": true,
+    "personalInfo": {
+      "firstName": "Jester",
+      "lastName": "Arcas",
+      "phoneNumber": 9332232232,
+      "joinDate": 12313213123,
+      "inactiveDate": 12313123123
+    }
+  }
+]
