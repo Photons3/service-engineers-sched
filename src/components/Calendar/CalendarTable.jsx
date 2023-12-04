@@ -16,7 +16,7 @@ export default function CalendarTable() {
     response: responseItinerary,
     loading: loadingItinerary,
     error: errorItinerary,
-  } = useFetch("http://localhost:3000");
+  } = useFetch();
 
   useEffect(() => {
     async function loadInitialItinerary() {
