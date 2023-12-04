@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState, useCallback } from "react";
-import useFetch from "use-http";
+import { useContext, useEffect, useState } from "react";
+import { useFetch } from "use-http";
 
 import ServiceItinerary from "./ServiceItinerary";
 import CalendarMainRow from "./CalendarMainRow";
