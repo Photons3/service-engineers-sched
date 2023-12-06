@@ -1,3 +1,5 @@
+import SingleItineraryItem from "./SingleItineraryItem";
+
 export default function ServiceItineraryItem({ weekItineraryList, uniqueKey }) {
   return (
     <>
@@ -5,7 +7,12 @@ export default function ServiceItineraryItem({ weekItineraryList, uniqueKey }) {
         {/* Checks if weekItineraryList exists and maps it to a li DOM */}
         {weekItineraryList
           ? weekItineraryList.list.map((item, index) => {
-              return <li key={`${uniqueKey}_${index}`}>{item.details}</li>;
+              return (
+                <SingleItineraryItem
+                  itineraryItem={item}
+                  key={`${uniqueKey}_${index}`}
+                />
+              );
             })
           : null}
       </ul>

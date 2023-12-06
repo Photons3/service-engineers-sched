@@ -33,12 +33,36 @@ export default async function handler(req, res) {
       if (selectedUsername === item.username) {
         usernameMatched = true;
         const responseItem = response[index];
-        const indexOfWeekItineraries = responseItem.weekItineraries.length;
+        const lengthOfWeekItineraries = responseItem.weekItineraries.length;
 
+        // When the weekItineraries is empty just append the new data
+        if (lengthOfWeekItineraries === 0) {
+          const weekItineraryItem = {
+            date: item?.date,
+            list: [
+              {
+                id: item._id,
+                details: item.details?.description || "",
+                institution: item.details?.institution || "",
+                machine: item.details?.machine || "",
+                location: {
+                  latitude: item.details.location?.latitude || 0,
+                  longitude: item.details.location?.longitude || 0,
+                  description: item.details.location?.description || "",
+                },
+                modifiedTime: item.modifiedTime,
+                modifiedBy: item.modifiedBy,
+              },
+            ],
+          };
+
+          // This append new value to weekitineraries array because no itinerary available has the same date
+          response[index].weekItineraries.push(weekItineraryItem);
+        }
         // Loop through all the service engineer itinerary for the week
         // if it has the same date append new data otherwise push new value to the list array
         let dateMatched = false;
-        for (let j = 0; j < indexOfWeekItineraries; j++) {
+        for (let j = 0; j < lengthOfWeekItineraries; j++) {
           const selectedDate = responseItem.weekItineraries[j].date;
 
           // This checks if the current item date is the same date as the one in the current index of array
@@ -66,7 +90,7 @@ export default async function handler(req, res) {
             response[index].weekItineraries[j].list.push(
               weekItineraryItem.list
             );
-          } else if (!dateMatched && !(j < indexOfWeekItineraries)) {
+          } else if (!dateMatched && !(j < lengthOfWeekItineraries)) {
             const weekItineraryItem = {
               date: item?.date,
               list: [
