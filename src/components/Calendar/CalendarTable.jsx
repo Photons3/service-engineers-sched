@@ -40,39 +40,38 @@ export default function CalendarTable() {
 
   return (
     <>
-      <div
-        className={classNames(
-          `grid-rows-[auto,repeat(10,auto)]`,
-          `lg:grid-cols-[150px,repeat(7,minmax(220px,auto))] sm:grid-cols-[110px,repeat(7,minmax(190px,auto))] grid-cols-[90px,repeat(7,minmax(150px,auto))]`,
-          "overflow-scroll grid max-h-[84vh] max-w-[200%] text-center"
-        )}
-      >
-        {/* First Column  */}
-        <div className="row-start-[1] col-start-[1] sticky left-0 top-0 -z-10 bg-white dark:bg-gradient-to-b dark:from-slate-600 dark:to-slate-700 border-slate-100 dark:border-black/10 bg-clip-padding text-slate-900 dark:text-slate-200 border-b text-sm font-medium py-2">
-          {`Today is ${currentDateTimeString.weekday}`} <br></br>
-          {`${currentDateTimeString.month} ${currentDateTimeString.day}`}
-        </div>
-
-        {selectedDatesTimeString.map((item, index) => {
-          return (
-            <CalendarMainRow
-              key={`1_${index + 1}`}
-              weekDatesString={item}
-              currentIndex={index}
-            />
-          );
-        })}
-
-        {itineraryList.map((item, index) => {
-          return (
-            <ServiceItinerary
-              key={`${index + 1}_1`}
-              data={item}
-              currentIndex={index}
-            />
-          );
-        })}
-      </div>
+      <table className="table-auto block w-full overflow-auto border-collapse max-h-[84vh] max-w-[100%] text-center">
+        <thead>
+          {/* First Column  */}
+          <tr>
+            <th className="sticky left-0 top-0 sm:w-[130px] lg:w-[180px] w-[110px] z-20 bg-white dark:bg-gradient-to-b dark:from-slate-600 dark:to-slate-700 border-slate-100 dark:border-black/10 bg-clip-padding text-slate-900 dark:text-slate-200 border-b text-sm font-medium py-2">
+              {" "}
+              {`Today is ${currentDateTimeString.weekday}`} <br></br>
+              {`${currentDateTimeString.month} ${currentDateTimeString.day}`}
+            </th>
+            {selectedDatesTimeString.map((item, index) => {
+              return (
+                <CalendarMainRow
+                  key={`1_${index + 1}`}
+                  weekDatesString={item}
+                  currentIndex={index}
+                />
+              );
+            })}
+          </tr>
+        </thead>
+        <tbody>
+          {itineraryList.map((item, index) => {
+            return (
+              <ServiceItinerary
+                key={`${index + 1}_1`}
+                data={item}
+                currentIndex={index}
+              />
+            );
+          })}
+        </tbody>
+      </table>
     </>
   );
 }
