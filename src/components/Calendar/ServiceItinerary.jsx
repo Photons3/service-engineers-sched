@@ -3,10 +3,13 @@ import { DateTime } from "luxon";
 
 import ServiceItineraryItem from "./ServiceItineraryItem";
 
-import classNames from "../../helpers/classNames";
 import { SelectedDatesContext } from "../../store/SelectedDates";
 
-export default function ServiceItinerary({ currentIndex, data }) {
+export default function ServiceItinerary({
+  currentIndex,
+  data,
+  postItinerary,
+}) {
   // ADD 2 to current index to hit the right row
   const rowStart = currentIndex + 2;
 
@@ -29,6 +32,8 @@ export default function ServiceItinerary({ currentIndex, data }) {
           const colStart = index + 2;
           const uniqueKey = rowStart.toString() + "_" + colStart.toString();
 
+          const uniqueId = data.username + "_" + selectedDate.ts.toString();
+
           return (
             <td
               key={uniqueKey}
@@ -48,6 +53,8 @@ export default function ServiceItinerary({ currentIndex, data }) {
                       <ServiceItineraryItem
                         key={`${uniqueKey}_${index}_index_serviceItineraryItem`}
                         uniqueKey={uniqueKey}
+                        uniqueId={uniqueId}
+                        postItinerary={postItinerary}
                       />
                     );
                   } else {
@@ -56,6 +63,8 @@ export default function ServiceItinerary({ currentIndex, data }) {
                         key={`${uniqueKey}_${index}_index_serviceItineraryItem`}
                         weekItineraryList={item}
                         uniqueKey={uniqueKey}
+                        uniqueId={uniqueId}
+                        postItinerary={postItinerary}
                       />
                     );
                   }
@@ -64,7 +73,9 @@ export default function ServiceItinerary({ currentIndex, data }) {
                 <ServiceItineraryItem
                   key={`${uniqueKey}_${0}_index_serviceItineraryItem`}
                   uniqueKey={uniqueKey}
-                ></ServiceItineraryItem>
+                  uniqueId={uniqueId}
+                  postItinerary={postItinerary}
+                />
               )}
             </td>
           );

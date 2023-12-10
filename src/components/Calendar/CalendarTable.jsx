@@ -5,7 +5,6 @@ import ServiceItinerary from "./ServiceItinerary";
 import CalendarMainRow from "./CalendarMainRow";
 
 import { SelectedDatesContext } from "../../store/SelectedDates";
-import classNames from "../../helpers/classNames";
 
 export default function CalendarTable() {
   const [itineraryList, setItineraryList] = useState([]);
@@ -29,6 +28,11 @@ export default function CalendarTable() {
     loadInitialItinerary();
   }, [getItinerary, responseItinerary, setItineraryList]);
 
+  // async function addItinerary() {
+  //   const newItinerary = await postItinerary("/api/schedule/itineraries", { title: "my new todo" });
+  //   if (response.ok) setItineraryList([...itineraryList, newItinerary]);
+  // }
+
   const selectedDatesCtx = useContext(SelectedDatesContext);
   const selectedDateTime = selectedDatesCtx.dateTime;
   const selectedDatesTimeString = selectedDateTime.weekDatesStringFormatted();
@@ -36,11 +40,9 @@ export default function CalendarTable() {
   const currentDate = selectedDatesCtx.dateTimeNow;
   const currentDateTimeString = currentDate.dateStringFormatted();
 
-  const servicePersonnelCount = itineraryList.length;
-
   return (
     <>
-      <table className="table-auto block w-full overflow-auto border-collapse max-h-[84vh] max-w-[100%] text-center">
+      <table className="table-fixed block w-full overflow-auto border-collapse max-h-[84vh] max-w-[100%] text-center">
         <thead>
           {/* First Column  */}
           <tr>
@@ -67,6 +69,7 @@ export default function CalendarTable() {
                 key={`${index + 1}_1`}
                 data={item}
                 currentIndex={index}
+                postItinerary={postItinerary}
               />
             );
           })}
