@@ -31,13 +31,14 @@ export default function ServiceItineraryItem({
         mongoId: 0,
         description: data,
       });
+      //itineraryList.list.push({ id: id, details: data });
     }
   }
 
   return (
     <>
       <ul>
-        {/* Checks if weekItineraryList exists and maps it to a li DOM */}
+        {/* Checks if weekItineraryList exists and maps it to an li DOM */}
         {itineraryList ? (
           itineraryList.list.map((item, index) => {
             return (

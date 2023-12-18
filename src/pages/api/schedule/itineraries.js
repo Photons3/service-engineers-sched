@@ -187,12 +187,14 @@ export default async function handler(req, res) {
     );
 
     const dateTimeNow = DATE_CLASS_NOW();
+    const personnels = await collectionServiceGroupings.findOne(
+      { date: { $lte: 4 } },
+      { sort: { date: -1 } }
+    );
+
     // Fetch the Database
+    // BUG: Only one date in itinerary is pushed
     if (req.method === "GET") {
-      const personnels = await collectionServiceGroupings.findOne(
-        { date: { $lte: 4 } },
-        { sort: { date: -1 } }
-      );
       personnels.groups.forEach(setInitialColumnsForServicePersonnels);
       const weekRange = dateTimeNow.setWeekRange();
       const startOfWeek = weekRange.startOfWeek.ts;
@@ -218,11 +220,10 @@ export default async function handler(req, res) {
 
     if (req.method === "POST") {
       const { username, date, mongoId, description } = req.body;
-      console.log(req.body);
+
       if (mongoId) {
         // Update the existing document
         const filter = { _id: mongoId };
-        // update the value of the 'quantity' field to 5
         const updateDocument = {
           $set: {
             details: { description: description },
@@ -230,27 +231,50 @@ export default async function handler(req, res) {
         };
         const result = await collectionIt.updateOne(filter, updateDocument);
       } else {
+        // Find the display name and group by using the username
+        let isFound = false;
+        let displayName = "";
+        let groupNumber = 0;
+        for (let i = 0; i < personnels.groups.length && !isFound; i++) {
+          if (personnels.groups[i].leader == username) {
+            isFound = true;
+            displayName = personnels.groups[i].leader.displayName;
+            groupNumber = personnels.groups[i].group;
+          }
+
+          const member = personnels.groups[i].members.find(
+            (element) => element.username == username
+          );
+          if (member) {
+            isFound = true;
+            displayName = member.displayName;
+            groupNumber = personnels.groups[i].group;
+          }
+        }
+
         // Insert new document
         const doc = {
-          username: "renzo",
-          displayName: "Renzo",
-          date: 1701572180235,
-          groupNumber: 4,
+          username: username,
+          displayName: displayName,
+          date: date,
+          groupNumber: groupNumber,
           isActive: true,
           details: {
-            description: "asdC",
-            institution: "CMC",
-            machine: "MLx9",
+            description: description,
+            institution: "",
+            machine: "",
             location: {
-              latitude: 123123.123123,
-              longitude: 123123213.213123,
-              description: "Tabi ng mcdo",
+              latitude: 0,
+              longitude: 0,
+              description: "",
             },
-            typeOfRequest: "Repair",
-            fieldReport: { year: 2023, sequence: 1034 },
+            typeOfRequest: "",
+            fieldReport: { year: 0, sequence: 0 },
           },
         };
         const result = await collectionIt.insertOne(doc);
+        const mongoId = result.insertedId;
+        console.log(mongoId);
       }
     }
   } catch (e) {
