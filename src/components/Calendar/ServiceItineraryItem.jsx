@@ -2,6 +2,11 @@ import { useState } from "react";
 
 import SingleItineraryItem from "./SingleItineraryItem";
 
+function parseUID(UID) {
+  //UID FORMAT username_datetimets_index
+  const parsedUID = UID.split("_");
+  return parsedUID;
+}
 export default function ServiceItineraryItem({
   weekItineraryList,
   uniqueKey,
@@ -10,8 +15,25 @@ export default function ServiceItineraryItem({
 }) {
   const [itineraryList, setItineraryList] = useState(weekItineraryList);
 
-  function onSubmit(mongoDbCollectionId, UID) {}
-    
+  async function onSubmit(mongoDbCollectionId, UID, data) {
+    const [username, dateTs, index] = parseUID(UID);
+    if (mongoDbCollectionId) {
+      const newItineraries = await postItinerary("/api/schedule/itineraries", {
+        username: username,
+        date: dateTs,
+        mongoId: mongoDbCollectionId,
+        details: data,
+      });
+    } else {
+      const newItineraries = await postItinerary("/api/schedule/itineraries", {
+        username: username,
+        date: dateTs,
+        mongoId: 0,
+        description: data,
+      });
+    }
+  }
+
   return (
     <>
       <ul>
@@ -35,6 +57,7 @@ export default function ServiceItineraryItem({
             itineraryItem={""}
             uniqueId={`${uniqueId}_0`}
             postItinerary={postItinerary}
+            onSubmit={onSubmit}
           />
         )}
       </ul>

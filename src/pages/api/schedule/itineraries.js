@@ -186,15 +186,14 @@ export default async function handler(req, res) {
       collectionNameServiceGroupings
     );
 
-    const personnels = await collectionServiceGroupings.findOne(
-      { date: { $lte: 4 } },
-      { sort: { date: -1 } }
-    );
-    personnels.groups.forEach(setInitialColumnsForServicePersonnels);
-
     const dateTimeNow = DATE_CLASS_NOW();
     // Fetch the Database
     if (req.method === "GET") {
+      const personnels = await collectionServiceGroupings.findOne(
+        { date: { $lte: 4 } },
+        { sort: { date: -1 } }
+      );
+      personnels.groups.forEach(setInitialColumnsForServicePersonnels);
       const weekRange = dateTimeNow.setWeekRange();
       const startOfWeek = weekRange.startOfWeek.ts;
       const endOfWeek = weekRange.endOfWeek.ts;
@@ -218,6 +217,41 @@ export default async function handler(req, res) {
     }
 
     if (req.method === "POST") {
+      const { username, date, mongoId, description } = req.body;
+      console.log(req.body);
+      if (mongoId) {
+        // Update the existing document
+        const filter = { _id: mongoId };
+        // update the value of the 'quantity' field to 5
+        const updateDocument = {
+          $set: {
+            details: { description: description },
+          },
+        };
+        const result = await collectionIt.updateOne(filter, updateDocument);
+      } else {
+        // Insert new document
+        const doc = {
+          username: "renzo",
+          displayName: "Renzo",
+          date: 1701572180235,
+          groupNumber: 4,
+          isActive: true,
+          details: {
+            description: "asdC",
+            institution: "CMC",
+            machine: "MLx9",
+            location: {
+              latitude: 123123.123123,
+              longitude: 123123213.213123,
+              description: "Tabi ng mcdo",
+            },
+            typeOfRequest: "Repair",
+            fieldReport: { year: 2023, sequence: 1034 },
+          },
+        };
+        const result = await collectionIt.insertOne(doc);
+      }
     }
   } catch (e) {
     console.error(e);

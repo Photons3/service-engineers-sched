@@ -11,22 +11,15 @@ export default function SingleItineraryItem({
   const text = useRef("");
   text.current = itineraryItem;
 
-  function parseUniqueId(UID) {
-    const uniqueIdParsed = UID.split("_");
-    console.log(uniqueIdParsed);
-
-    if (mongoId) {
-    }
-  }
-
   function handleChange(evt) {
     text.current = evt.target.value;
   }
 
   function handleKeyDown(event) {
     if (event.key == "Enter") {
-      onSubmit(mongoId, uniqueId);
-      console.log("Enter was pressed");
+      event.target.blur();
+      const data = text.current;
+      onSubmit(mongoId, uniqueId, data);
     }
   }
 
