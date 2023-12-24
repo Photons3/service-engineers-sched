@@ -61,8 +61,8 @@ export default async function handler(req, res) {
         }
         // Loop through all the service engineer itinerary for the week
         // if it has the same date append new data otherwise push new value to the list array
-        let dateMatched = false;
         for (let j = 0; j < lengthOfWeekItineraries; j++) {
+          let dateMatched = false;
           const selectedDate = responseItem.weekItineraries[j].date;
 
           // This checks if the current item date is the same date as the one in the current index of array
@@ -230,6 +230,7 @@ export default async function handler(req, res) {
           },
         };
         const result = await collectionIt.updateOne(filter, updateDocument);
+        res.status(200).json({ mongoId: mongoId });
       } else {
         // Find the display name and group by using the username
         let isFound = false;
@@ -273,8 +274,9 @@ export default async function handler(req, res) {
           },
         };
         const result = await collectionIt.insertOne(doc);
-        const mongoId = result.insertedId;
-        console.log(mongoId);
+        const mongoIdNew = result.insertedId;
+        doc.id = mongoIdNew;
+        res.status(200).json(doc);
       }
     }
   } catch (e) {

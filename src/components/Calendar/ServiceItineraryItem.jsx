@@ -31,7 +31,11 @@ export default function ServiceItineraryItem({
         mongoId: 0,
         description: data,
       });
-      //itineraryList.list.push({ id: id, details: data });
+      const newItineraryJSObj = JSON.parse(newItineraries);
+      itineraryList.list.push({
+        id: newItineraryJSObj.id,
+        details: newItineraryJSObj.details.description,
+      });
     }
   }
 
@@ -51,7 +55,15 @@ export default function ServiceItineraryItem({
                 onSubmit={onSubmit}
               />
             );
-          })
+          })(
+            <SingleItineraryItem
+              key={`${uniqueKey}_0`}
+              itineraryItem={""}
+              uniqueId={`${uniqueId}_0`}
+              postItinerary={postItinerary}
+              onSubmit={onSubmit}
+            />
+          )
         ) : (
           <SingleItineraryItem
             key={`${uniqueKey}_0`}
