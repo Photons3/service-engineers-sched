@@ -31,13 +31,18 @@ export default function ServiceItineraryItem({
         mongoId: 0,
         description: data,
       });
+      const newItineraryJSObj = JSON.parse(newItineraries);
+      itineraryList.list.push({
+        id: newItineraryJSObj.id,
+        details: newItineraryJSObj.details.description,
+      });
     }
   }
 
   return (
     <>
       <ul>
-        {/* Checks if weekItineraryList exists and maps it to a li DOM */}
+        {/* Checks if weekItineraryList exists and maps it to an li DOM */}
         {itineraryList ? (
           itineraryList.list.map((item, index) => {
             return (
@@ -50,7 +55,15 @@ export default function ServiceItineraryItem({
                 onSubmit={onSubmit}
               />
             );
-          })
+          })(
+            <SingleItineraryItem
+              key={`${uniqueKey}_0`}
+              itineraryItem={""}
+              uniqueId={`${uniqueId}_0`}
+              postItinerary={postItinerary}
+              onSubmit={onSubmit}
+            />
+          )
         ) : (
           <SingleItineraryItem
             key={`${uniqueKey}_0`}

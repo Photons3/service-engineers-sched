@@ -23,12 +23,18 @@ export default function SingleItineraryItem({
     }
   }
 
+  function handleBlur() {
+    const data = text.current;
+    onSubmit(mongoId, uniqueId, data);
+  }
+
   return (
     <li>
       <ContentEditable
         html={text.current}
         onKeyDown={handleKeyDown}
         onChange={handleChange}
+        // onBlur={handleBlur}
       />
     </li>
   );
